@@ -11,15 +11,35 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.MyTrip">
+
+        <!-- Activity 1: Home screen (launcher) -->
         <activity
             android:name=".MainActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
+        <!-- Activity 2: Trip checklist – opened via Intent from MainActivity -->
+        <activity
+            android:name=".TripDetailActivity"
+            android:exported="false"
+            android:parentActivityName=".MainActivity" />
+
+        <!-- Activity 3: Statistics – opened via Intent from MainActivity -->
+        <activity
+            android:name=".StatisticsActivity"
+            android:exported="false"
+            android:parentActivityName=".MainActivity" />
+
+        <!-- Activity 4: About / Support – opened via Intent from MainActivity -->
+        <activity
+            android:name=".SupportActivity"
+            android:exported="false"
+            android:parentActivityName=".MainActivity" />
+
     </application>
 
 </manifest>

@@ -234,4 +234,14 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         db.close();
         return name;
     }
+
+    // ==================== Utility Functions ====================
+
+    /** Deletes all trips and items from the database. */
+    public void clearAllData() {
+        SQLiteDatabase db = this.getWritableDatabase();
+        db.delete(TABLE_ITEMS, null, null);
+        db.delete(TABLE_TRIPS, null, null);
+        db.close();
+    }
 }
