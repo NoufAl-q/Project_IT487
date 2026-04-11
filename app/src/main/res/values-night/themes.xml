@@ -1,7 +1,27 @@
-<resources xmlns:tools="http://schemas.android.com/tools">
-    <!-- Base application theme. -->
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Dark-mode colour overrides -->
     <style name="Base.Theme.MyTrip" parent="Theme.Material3.DayNight.NoActionBar">
-        <!-- Customize your dark theme here. -->
-        <!-- <item name="colorPrimary">@color/my_dark_primary</item> -->
+        <item name="colorPrimary">#4FD8EB</item>
+        <item name="colorOnPrimary">#00363D</item>
+        <item name="colorPrimaryContainer">#004F57</item>
+        <item name="colorOnPrimaryContainer">#97F0FF</item>
+        <item name="colorSecondary">#B1CBD0</item>
+        <item name="colorOnSecondary">#1C3438</item>
+        <item name="colorSecondaryContainer">#334B4F</item>
+        <item name="colorOnSecondaryContainer">#CDE7EC</item>
+        <item name="colorTertiary">#BAC3E8</item>
+        <item name="colorOnTertiary">#242D4D</item>
+        <item name="colorTertiaryContainer">#3B4465</item>
+        <item name="colorOnTertiaryContainer">#DAE2FF</item>
+        <item name="android:colorBackground">#191C1D</item>
+        <item name="colorSurface">#191C1D</item>
+        <item name="colorOnSurface">#E1E3E3</item>
+        <item name="colorSurfaceVariant">#3F484A</item>
+        <item name="colorOnSurfaceVariant">#BFC8CA</item>
+        <item name="colorError">#FFB4AB</item>
+        <item name="colorOnError">#690005</item>
     </style>
+
+    <style name="Theme.MyTrip" parent="Base.Theme.MyTrip" />
 </resources>

@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+    Location : app/src/main/res/layout/
+    Purpose  : Dialog layout for adding a new trip
+-->
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:padding="20dp">
+
+    <!-- Destination field -->
+    <com.google.android.material.textfield.TextInputLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="@string/destination"
+        style="@style/Widget.Material3.TextInputLayout.OutlinedBox">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/etDestination"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="textCapWords"
+            android:imeOptions="actionNext" />
+
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <View android:layout_width="match_parent" android:layout_height="12dp" />
+
+    <!-- Date field -->
+    <com.google.android.material.textfield.TextInputLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="@string/date_hint"
+        style="@style/Widget.Material3.TextInputLayout.OutlinedBox">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/etDate"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="date"
+            android:imeOptions="actionDone" />
+
+    </com.google.android.material.textfield.TextInputLayout>
+
+</LinearLayout>
