@@ -17,6 +17,7 @@ import androidx.appcompat.widget.Toolbar;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
 import java.util.ArrayList;
@@ -44,6 +45,7 @@ public class MainActivity extends AppCompatActivity
     private final List<Trip> tripList = new ArrayList<>();
     private DatabaseHelper dbHelper;
     private TextView tvEmpty;
+    private TextView tvStatTrips, tvStatPrepared, tvStatRemaining;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -63,6 +65,9 @@ public class MainActivity extends AppCompatActivity
         dbHelper = new DatabaseHelper(this);
         recyclerView = findViewById(R.id.recyclerViewTrips);
         tvEmpty = findViewById(R.id.tvEmpty);
+        tvStatTrips     = findViewById(R.id.tvStatTrips);
+        tvStatPrepared  = findViewById(R.id.tvStatPrepared);
+        tvStatRemaining = findViewById(R.id.tvStatRemaining);
 
         // RecyclerView setup
         adapter = new TripAdapter(this, tripList, this);
@@ -75,6 +80,25 @@ public class MainActivity extends AppCompatActivity
             AddTripDialogFragment dialog = new AddTripDialogFragment();
             dialog.setOnTripAddedListener(() -> loadTrips(null));
             dialog.show(getSupportFragmentManager(), "AddTripDialog");
+        });
+
+        // Bottom Navigation
+        BottomNavigationView bottomNav = findViewById(R.id.bottomNav);
+        bottomNav.setSelectedItemId(R.id.nav_home);
+        bottomNav.setOnItemSelectedListener(item -> {
+            int id = item.getItemId();
+            if (id == R.id.nav_home) {
+                return true;
+            } else if (id == R.id.nav_stats) {
+                startActivity(new Intent(this, StatisticsActivity.class));
+                overridePendingTransition(0, 0);
+                return true;
+            } else if (id == R.id.nav_about) {
+                startActivity(new Intent(this, SupportActivity.class));
+                overridePendingTransition(0, 0);
+                return true;
+            }
+            return false;
         });
 
         loadTrips(null);
@@ -99,6 +123,13 @@ public class MainActivity extends AppCompatActivity
 
         adapter.notifyDataSetChanged();
         tvEmpty.setVisibility(tripList.isEmpty() ? View.VISIBLE : View.GONE);
+
+        // Update stats card
+        int totalItems    = dbHelper.getTotalItems();
+        int preparedItems = dbHelper.getPreparedItems();
+        tvStatTrips.setText(String.valueOf(tripList.size()));
+        tvStatPrepared.setText(String.valueOf(preparedItems));
+        tvStatRemaining.setText(String.valueOf(totalItems - preparedItems));
     }
 
     // ── TripAdapter.OnTripClickListener ──────────────────────────────────────

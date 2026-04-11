@@ -17,7 +17,7 @@
 
     <!-- Add Trip Dialog -->
     <string name="destination">Destination</string>
-    <string name="date_hint">Date (YYYY-MM-DD)</string>
+    <string name="date_hint">Date (tap 📅 or type YYYY-MM-DD)</string>
     <string name="save">Save</string>
     <string name="cancel">Cancel</string>
 
