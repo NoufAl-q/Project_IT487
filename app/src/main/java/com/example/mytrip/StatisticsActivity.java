@@ -16,7 +16,7 @@ import com.google.android.material.bottomnavigation.BottomNavigationView;
  * Rubric coverage:
  *   - Third runnable Activity (Intent navigation from MainActivity)
  *   - TableLayout for structured display (see activity_statistics.xml)
- *   - Reads: Total Trips, Total Items, Packed Items, Remaining Items, Next Trip, Completion Rate
+ *   - Reads: Total Trips, Total Items, Prepared Items, Remaining Items, Next Trip
  */
 public class StatisticsActivity extends AppCompatActivity {
 
