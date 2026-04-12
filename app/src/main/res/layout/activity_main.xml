@@ -3,160 +3,142 @@
     Location : app/src/main/res/layout/
     Purpose  : Home screen – trip list with FAB, SearchView, toolbar menu, bottom navigation
 -->
-<androidx.coordinatorlayout.widget.CoordinatorLayout
+<LinearLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:orientation="vertical"
     android:fitsSystemWindows="true"
     android:background="?android:attr/colorBackground">
 
     <!-- App Bar -->
-    <com.google.android.material.appbar.AppBarLayout
-        android:id="@+id/appBarLayout"
+    <com.google.android.material.appbar.MaterialToolbar
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:background="?attr/colorPrimary"
+        app:titleTextColor="?attr/colorOnPrimary"
+        app:title="@string/app_name" />
+
+    <!-- Stats summary card -->
+    <com.google.android.material.card.MaterialCardView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:fitsSystemWindows="true">
+        android:layout_marginHorizontal="12dp"
+        android:layout_marginTop="12dp"
+        android:layout_marginBottom="4dp"
+        app:cardCornerRadius="20dp"
+        app:cardElevation="0dp"
+        app:cardBackgroundColor="@color/colorPrimaryContainer"
+        app:strokeWidth="0dp">
 
-        <com.google.android.material.appbar.MaterialToolbar
-            android:id="@+id/toolbar"
-            android:layout_width="match_parent"
-            android:layout_height="?attr/actionBarSize"
-            android:background="?attr/colorPrimary"
-            app:titleTextColor="?attr/colorOnPrimary"
-            app:title="@string/app_name" />
-
-    </com.google.android.material.appbar.AppBarLayout>
-
-    <!-- Content area shifts below AppBar and above BottomNav -->
-    <FrameLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_marginBottom="56dp"
-        app:layout_behavior="@string/appbar_scrolling_view_behavior">
-
-        <!-- Stats summary card -->
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:orientation="vertical">
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:padding="16dp">
 
-            <com.google.android.material.card.MaterialCardView
-                xmlns:app2="http://schemas.android.com/apk/res-auto"
-                android:layout_width="match_parent"
+            <!-- Total Trips -->
+            <LinearLayout
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:layout_marginHorizontal="12dp"
-                android:layout_marginTop="12dp"
-                android:layout_marginBottom="4dp"
-                app2:cardCornerRadius="20dp"
-                app2:cardElevation="0dp"
-                app2:cardBackgroundColor="@color/colorPrimaryContainer"
-                app2:strokeWidth="0dp">
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:orientation="horizontal"
-                    android:padding="16dp">
-
-                    <!-- Total Trips -->
-                    <LinearLayout
-                        android:layout_width="0dp"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="1"
-                        android:orientation="vertical"
-                        android:gravity="center">
-                        <TextView
-                            android:id="@+id/tvStatTrips"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="0"
-                            android:textSize="26sp"
-                            android:textStyle="bold"
-                            android:textColor="@color/colorOnPrimaryContainer" />
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="Trips"
-                            android:textSize="12sp"
-                            android:textColor="@color/colorOnPrimaryContainer" />
-                    </LinearLayout>
-
-                    <!-- Divider -->
-                    <View
-                        android:layout_width="1dp"
-                        android:layout_height="match_parent"
-                        android:background="@color/colorPrimary"
-                        android:alpha="0.3" />
-
-                    <!-- Prepared -->
-                    <LinearLayout
-                        android:layout_width="0dp"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="1"
-                        android:orientation="vertical"
-                        android:gravity="center">
-                        <TextView
-                            android:id="@+id/tvStatPrepared"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="0"
-                            android:textSize="26sp"
-                            android:textStyle="bold"
-                            android:textColor="@color/colorOnPrimaryContainer" />
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="Prepared"
-                            android:textSize="12sp"
-                            android:textColor="@color/colorOnPrimaryContainer" />
-                    </LinearLayout>
-
-                    <!-- Divider -->
-                    <View
-                        android:layout_width="1dp"
-                        android:layout_height="match_parent"
-                        android:background="@color/colorPrimary"
-                        android:alpha="0.3" />
-
-                    <!-- Remaining -->
-                    <LinearLayout
-                        android:layout_width="0dp"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="1"
-                        android:orientation="vertical"
-                        android:gravity="center">
-                        <TextView
-                            android:id="@+id/tvStatRemaining"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="0"
-                            android:textSize="26sp"
-                            android:textStyle="bold"
-                            android:textColor="@color/colorOnPrimaryContainer" />
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="Remaining"
-                            android:textSize="12sp"
-                            android:textColor="@color/colorOnPrimaryContainer" />
-                    </LinearLayout>
-
-                </LinearLayout>
-
-            </com.google.android.material.card.MaterialCardView>
-
-            <!-- Trip list -->
-            <androidx.recyclerview.widget.RecyclerView
-                android:id="@+id/recyclerViewTrips"
-                android:layout_width="match_parent"
-                android:layout_height="0dp"
                 android:layout_weight="1"
-                android:padding="8dp"
-                android:paddingBottom="16dp"
-                android:clipToPadding="false" />
+                android:orientation="vertical"
+                android:gravity="center">
+                <TextView
+                    android:id="@+id/tvStatTrips"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="0"
+                    android:textSize="26sp"
+                    android:textStyle="bold"
+                    android:textColor="@color/colorOnPrimaryContainer" />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Trips"
+                    android:textSize="12sp"
+                    android:textColor="@color/colorOnPrimaryContainer" />
+            </LinearLayout>
+
+            <!-- Divider -->
+            <View
+                android:layout_width="1dp"
+                android:layout_height="match_parent"
+                android:background="@color/colorPrimary"
+                android:alpha="0.3" />
+
+            <!-- Prepared -->
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:orientation="vertical"
+                android:gravity="center">
+                <TextView
+                    android:id="@+id/tvStatPrepared"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="0"
+                    android:textSize="26sp"
+                    android:textStyle="bold"
+                    android:textColor="@color/colorOnPrimaryContainer" />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Prepared"
+                    android:textSize="12sp"
+                    android:textColor="@color/colorOnPrimaryContainer" />
+            </LinearLayout>
+
+            <!-- Divider -->
+            <View
+                android:layout_width="1dp"
+                android:layout_height="match_parent"
+                android:background="@color/colorPrimary"
+                android:alpha="0.3" />
+
+            <!-- Remaining -->
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:orientation="vertical"
+                android:gravity="center">
+                <TextView
+                    android:id="@+id/tvStatRemaining"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="0"
+                    android:textSize="26sp"
+                    android:textStyle="bold"
+                    android:textColor="@color/colorOnPrimaryContainer" />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Remaining"
+                    android:textSize="12sp"
+                    android:textColor="@color/colorOnPrimaryContainer" />
+            </LinearLayout>
 
         </LinearLayout>
+
+    </com.google.android.material.card.MaterialCardView>
+
+    <!-- Trip list (takes remaining space) -->
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1">
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/recyclerViewTrips"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:padding="8dp"
+            android:paddingBottom="16dp"
+            android:clipToPadding="false" />
 
         <!-- Empty state label -->
         <TextView
@@ -169,27 +151,25 @@
             android:textColor="?attr/colorOnSurfaceVariant"
             android:visibility="gone" />
 
-    </FrameLayout>
+        <!-- Floating Action Button -->
+        <com.google.android.material.floatingactionbutton.FloatingActionButton
+            android:id="@+id/fabAddTrip"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom|end"
+            android:layout_margin="16dp"
+            android:contentDescription="@string/add_trip"
+            app:srcCompat="@android:drawable/ic_input_add"
+            app:tint="@color/white" />
 
-    <!-- Floating Action Button – positioned above BottomNavigationView -->
-    <com.google.android.material.floatingactionbutton.FloatingActionButton
-        android:id="@+id/fabAddTrip"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="bottom|end"
-        android:layout_marginEnd="16dp"
-        android:layout_marginBottom="72dp"
-        android:contentDescription="@string/add_trip"
-        app:srcCompat="@android:drawable/ic_input_add"
-        app:tint="@color/white" />
+    </FrameLayout>
 
     <!-- Bottom Navigation -->
     <com.google.android.material.bottomnavigation.BottomNavigationView
         android:id="@+id/bottomNav"
         android:layout_width="match_parent"
         android:layout_height="56dp"
-        android:layout_gravity="bottom"
         app:menu="@menu/menu_bottom_nav"
         app:labelVisibilityMode="labeled" />
 
-</androidx.coordinatorlayout.widget.CoordinatorLayout>
+</LinearLayout>
