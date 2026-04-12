@@ -18,8 +18,8 @@ appcompat = { group = "androidx.appcompat", name = "appcompat", version.ref = "a
 material = { group = "com.google.android.material", name = "material", version.ref = "material" }
 activity = { group = "androidx.activity", name = "activity", version.ref = "activity" }
 constraintlayout = { group = "androidx.constraintlayout", name = "constraintlayout", version.ref = "constraintlayout" }
-recyclerview = { group = "implementation(", name = "recyclerview", version.ref = "recyclerview" }
-cardview = { group = "implementation(", name = "cardview", version.ref = "cardview" }
+recyclerview = { group = "androidx.recyclerview", name = "recyclerview", version.ref = "recyclerview" }
+cardview = { group = "androidx.cardview", name = "cardview", version.ref = "cardview" }
 
 [plugins]
 android-application = { id = "com.android.application", version.ref = "agp" }
