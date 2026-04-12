@@ -34,9 +34,9 @@
     <string name="priority_low">Low</string>
     <string name="delete_item">Delete Item</string>
 
-    <!-- Statistics Screen -->
+    <!-- Statistics / Dashboard Screen -->
     <string name="statistics">Dashboard</string>
-    <string name="stat_label">Statistic</string>
+    <string name="stat_label">Metric</string>
     <string name="stat_value">Value</string>
     <string name="total_trips">Total Trips</string>
     <string name="total_items">Total Items</string>
@@ -45,10 +45,11 @@
     <string name="next_trip">Next Trip</string>
     <string name="completion_rate">Completion Rate</string>
 
-    <!-- Support Screen -->
+    <!-- Meet the Team Screen -->
     <string name="support">Meet the Team</string>
     <string name="team_section">Team Members</string>
     <string name="supervisor_section">Supervisor</string>
+    <string name="professor_section">Professor</string>
     <string name="course_section">Course</string>
     <string name="app_version">Version 1.0</string>
 

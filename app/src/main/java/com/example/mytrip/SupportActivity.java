@@ -12,7 +12,7 @@ import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.button.MaterialButton;
 
 /**
- * SupportActivity – Meet the Team screen.
+ * SupportActivity – Static About / Support screen.
  *
  * Shows team member names, IDs, and supervisor info.
  * Rubric: Fourth runnable Activity with Intent navigation.
@@ -31,20 +31,11 @@ public class SupportActivity extends AppCompatActivity {
             getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         }
 
-        // Email button – opens mail client via implicit Intent
+        // Website button – opens SEU website via implicit Intent
         MaterialButton btnEmail = findViewById(R.id.btnEmail);
         btnEmail.setOnClickListener(v -> {
-            Intent emailIntent = new Intent(Intent.ACTION_SENDTO);
-            emailIntent.setData(Uri.parse("mailto:support@mytrip.com"));
-            emailIntent.putExtra(Intent.EXTRA_SUBJECT, "MyTrip App – Support Request");
-            startActivity(Intent.createChooser(emailIntent, "Send email via"));
-        });
-
-        // GitHub button – opens browser via implicit Intent
-        MaterialButton btnGitHub = findViewById(R.id.btnGitHub);
-        btnGitHub.setOnClickListener(v -> {
             Intent browserIntent = new Intent(Intent.ACTION_VIEW,
-                    Uri.parse("https://github.com/NoufAl-q/MyTrip"));
+                    Uri.parse("https://seu.edu.sa/"));
             startActivity(browserIntent);
         });
 
