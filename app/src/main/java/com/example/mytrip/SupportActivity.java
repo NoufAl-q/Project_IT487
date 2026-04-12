@@ -8,10 +8,11 @@ import android.view.MenuItem;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 
+import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.button.MaterialButton;
 
 /**
- * SupportActivity – Static About / Support screen.
+ * SupportActivity – Meet the Team screen.
  *
  * Shows team member names, IDs, and supervisor info.
  * Rubric: Fourth runnable Activity with Intent navigation.
@@ -46,6 +47,32 @@ public class SupportActivity extends AppCompatActivity {
                     Uri.parse("https://github.com/NoufAl-q/MyTrip"));
             startActivity(browserIntent);
         });
+
+        // Bottom Navigation – highlight About tab
+        BottomNavigationView bottomNav = findViewById(R.id.bottomNav);
+        bottomNav.setSelectedItemId(R.id.nav_about);
+        bottomNav.setOnItemSelectedListener(item -> {
+            int id = item.getItemId();
+            if (id == R.id.nav_home) {
+                startActivity(new Intent(this, MainActivity.class)
+                        .addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP));
+                overridePendingTransition(0, 0);
+                return true;
+            } else if (id == R.id.nav_stats) {
+                startActivity(new Intent(this, StatisticsActivity.class));
+                overridePendingTransition(0, 0);
+                return true;
+            } else if (id == R.id.nav_about) {
+                return true;
+            }
+            return false;
+        });
+    }
+
+    @Override
+    public boolean onSupportNavigateUp() {
+        finish();
+        return true;
     }
 
     @Override

@@ -9,7 +9,8 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:background="?attr/colorBackground">
+    android:fitsSystemWindows="true"
+    android:background="?android:attr/colorBackground">
 
     <!-- Toolbar -->
     <com.google.android.material.appbar.MaterialToolbar
@@ -23,7 +24,8 @@
 
     <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
         android:padding="16dp">
 
         <LinearLayout
@@ -45,7 +47,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:padding="20dp"
-                    android:text="Trip Statistics Overview"
+                    android:text="My Trip Summary"
                     android:textSize="20sp"
                     android:textStyle="bold"
                     android:textColor="?attr/colorOnPrimaryContainer"
@@ -153,7 +155,7 @@
                     <View android:layout_width="match_parent" android:layout_height="1dp"
                         android:background="?attr/colorSurfaceVariant" />
 
-                    <!-- Prepared Items -->
+                    <!-- Packed Items -->
                     <TableRow android:padding="8dp">
                         <TextView
                             android:layout_width="0dp"
@@ -228,11 +230,49 @@
                             android:gravity="end" />
                     </TableRow>
 
+                    <View android:layout_width="match_parent" android:layout_height="1dp"
+                        android:background="?attr/colorSurfaceVariant" />
+
+                    <!-- Completion Rate -->
+                    <TableRow android:padding="8dp">
+                        <TextView
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:padding="12dp"
+                            android:text="@string/completion_rate"
+                            android:textSize="15sp"
+                            android:textColor="?attr/colorOnSurface" />
+                        <TextView
+                            android:id="@+id/tvCompletionRate"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:padding="12dp"
+                            android:text="0%"
+                            android:textSize="15sp"
+                            android:textStyle="bold"
+                            android:textColor="@color/colorTertiary"
+                            android:gravity="end" />
+                    </TableRow>
+
                 </TableLayout>
 
             </androidx.cardview.widget.CardView>
 
         </LinearLayout>
     </ScrollView>
+
+    <!-- Bottom Navigation -->
+    <com.google.android.material.bottomnavigation.BottomNavigationView
+        android:id="@+id/bottomNav"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:menu="@menu/menu_bottom_nav"
+        app:labelVisibilityMode="labeled"
+        app:itemIconSize="28dp"
+        app:itemIconTint="@color/nav_icon_color"
+        app:itemTextColor="@color/nav_icon_color"
+        android:elevation="8dp" />
 
 </LinearLayout>

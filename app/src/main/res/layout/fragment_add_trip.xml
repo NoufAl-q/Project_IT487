@@ -28,19 +28,25 @@
 
     <View android:layout_width="match_parent" android:layout_height="12dp" />
 
-    <!-- Date field -->
+    <!-- Date field – tap calendar icon to open DatePickerDialog, or type manually -->
     <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/tilDate"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:hint="@string/date_hint"
-        style="@style/Widget.Material3.TextInputLayout.OutlinedBox">
+        style="@style/Widget.Material3.TextInputLayout.OutlinedBox"
+        app:endIconMode="custom"
+        app:endIconDrawable="@drawable/ic_calendar"
+        app:endIconContentDescription="Pick date"
+        xmlns:app="http://schemas.android.com/apk/res-auto">
 
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/etDate"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:inputType="date"
-            android:imeOptions="actionDone" />
+            android:inputType="text"
+            android:imeOptions="actionDone"
+            android:focusable="true" />
 
     </com.google.android.material.textfield.TextInputLayout>
 

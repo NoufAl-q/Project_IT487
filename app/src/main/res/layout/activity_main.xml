@@ -1,69 +1,356 @@
 <?xml version="1.0" encoding="utf-8"?>
-<!--
-    Location : app/src/main/res/layout/
-    Purpose  : Home screen – trip list with FAB, SearchView, toolbar menu
--->
-<androidx.coordinatorlayout.widget.CoordinatorLayout
+<LinearLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="?attr/colorBackground">
+    android:orientation="vertical"
+    android:fitsSystemWindows="true"
+    android:background="?android:attr/colorBackground">
 
-    <!-- App Bar -->
-    <com.google.android.material.appbar.AppBarLayout
-        android:id="@+id/appBarLayout"
+    <!-- Toolbar -->
+    <com.google.android.material.appbar.MaterialToolbar
+        android:id="@+id/toolbar"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:fitsSystemWindows="true">
+        android:layout_height="?attr/actionBarSize"
+        android:background="?attr/colorPrimary"
+        app:titleTextColor="?attr/colorOnPrimary"
+        app:title="@string/app_name" />
 
-        <com.google.android.material.appbar.MaterialToolbar
-            android:id="@+id/toolbar"
-            android:layout_width="match_parent"
-            android:layout_height="?attr/actionBarSize"
-            android:background="?attr/colorPrimary"
-            app:titleTextColor="?attr/colorOnPrimary"
-            app:title="@string/app_name" />
-
-    </com.google.android.material.appbar.AppBarLayout>
-
-    <!-- Content area (shifts below AppBar automatically) -->
+    <!-- Content + nav wrapper so FAB can float above bottom nav -->
     <FrameLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        app:layout_behavior="@string/appbar_scrolling_view_behavior">
+        android:layout_height="0dp"
+        android:layout_weight="1">
 
-        <!-- Trip list -->
-        <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/recyclerViewTrips"
+        <!-- Scrollable content -->
+        <ScrollView
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:padding="8dp"
-            android:paddingBottom="88dp"
-            android:clipToPadding="false" />
+            android:paddingBottom="72dp"
+            android:clipToPadding="false">
 
-        <!-- Empty state label -->
-        <TextView
-            android:id="@+id/tvEmpty"
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <!-- ── Destination Cards ── -->
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Explore ✈"
+                    android:textSize="16sp"
+                    android:textStyle="bold"
+                    android:textColor="?attr/colorOnSurface"
+                    android:layout_marginStart="16dp"
+                    android:layout_marginTop="14dp"
+                    android:layout_marginBottom="8dp" />
+
+                <HorizontalScrollView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:scrollbars="none"
+                    android:paddingStart="12dp"
+                    android:paddingEnd="12dp"
+                    android:clipToPadding="false">
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal">
+
+                        <!-- Jeddah -->
+                        <com.google.android.material.card.MaterialCardView
+                            android:layout_width="120dp"
+                            android:layout_height="110dp"
+                            android:layout_marginEnd="10dp"
+                            app:cardCornerRadius="18dp"
+                            app:cardElevation="2dp"
+                            app:cardBackgroundColor="#7D5F6B"
+                            app:strokeWidth="0dp">
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:orientation="vertical"
+                                android:gravity="center"
+                                android:padding="12dp">
+                                <ImageView
+                                    android:layout_width="32dp"
+                                    android:layout_height="32dp"
+                                    android:src="@drawable/ic_flight"
+                                    android:contentDescription="Jeddah" />
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="Jeddah"
+                                    android:textColor="#FFFFFF"
+                                    android:textSize="13sp"
+                                    android:textStyle="bold"
+                                    android:layout_marginTop="8dp" />
+                            </LinearLayout>
+                        </com.google.android.material.card.MaterialCardView>
+
+                        <!-- Riyadh -->
+                        <com.google.android.material.card.MaterialCardView
+                            android:layout_width="120dp"
+                            android:layout_height="110dp"
+                            android:layout_marginEnd="10dp"
+                            app:cardCornerRadius="18dp"
+                            app:cardElevation="2dp"
+                            app:cardBackgroundColor="#5C4A6E"
+                            app:strokeWidth="0dp">
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:orientation="vertical"
+                                android:gravity="center"
+                                android:padding="12dp">
+                                <ImageView
+                                    android:layout_width="32dp"
+                                    android:layout_height="32dp"
+                                    android:src="@drawable/ic_flight"
+                                    android:contentDescription="Riyadh" />
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="Riyadh"
+                                    android:textColor="#FFFFFF"
+                                    android:textSize="13sp"
+                                    android:textStyle="bold"
+                                    android:layout_marginTop="8dp" />
+                            </LinearLayout>
+                        </com.google.android.material.card.MaterialCardView>
+
+                        <!-- Makkah -->
+                        <com.google.android.material.card.MaterialCardView
+                            android:layout_width="120dp"
+                            android:layout_height="110dp"
+                            android:layout_marginEnd="10dp"
+                            app:cardCornerRadius="18dp"
+                            app:cardElevation="2dp"
+                            app:cardBackgroundColor="#8C7060"
+                            app:strokeWidth="0dp">
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:orientation="vertical"
+                                android:gravity="center"
+                                android:padding="12dp">
+                                <ImageView
+                                    android:layout_width="32dp"
+                                    android:layout_height="32dp"
+                                    android:src="@drawable/ic_flight"
+                                    android:contentDescription="Makkah" />
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="Makkah"
+                                    android:textColor="#FFFFFF"
+                                    android:textSize="13sp"
+                                    android:textStyle="bold"
+                                    android:layout_marginTop="8dp" />
+                            </LinearLayout>
+                        </com.google.android.material.card.MaterialCardView>
+
+                        <!-- Dubai -->
+                        <com.google.android.material.card.MaterialCardView
+                            android:layout_width="120dp"
+                            android:layout_height="110dp"
+                            app:cardCornerRadius="18dp"
+                            app:cardElevation="2dp"
+                            app:cardBackgroundColor="#4A5568"
+                            app:strokeWidth="0dp">
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:orientation="vertical"
+                                android:gravity="center"
+                                android:padding="12dp">
+                                <ImageView
+                                    android:layout_width="32dp"
+                                    android:layout_height="32dp"
+                                    android:src="@drawable/ic_flight"
+                                    android:contentDescription="Dubai" />
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="Dubai"
+                                    android:textColor="#FFFFFF"
+                                    android:textSize="13sp"
+                                    android:textStyle="bold"
+                                    android:layout_marginTop="8dp" />
+                            </LinearLayout>
+                        </com.google.android.material.card.MaterialCardView>
+
+                    </LinearLayout>
+                </HorizontalScrollView>
+
+                <!-- ── Stats summary card ── -->
+                <com.google.android.material.card.MaterialCardView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="12dp"
+                    android:layout_marginTop="14dp"
+                    android:layout_marginBottom="4dp"
+                    app:cardCornerRadius="20dp"
+                    app:cardElevation="0dp"
+                    app:cardBackgroundColor="@color/colorPrimaryContainer"
+                    app:strokeWidth="0dp">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:padding="16dp">
+
+                        <LinearLayout
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:orientation="vertical"
+                            android:gravity="center">
+                            <TextView
+                                android:id="@+id/tvStatTrips"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="0"
+                                android:textSize="26sp"
+                                android:textStyle="bold"
+                                android:textColor="@color/colorOnPrimaryContainer" />
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="Trips"
+                                android:textSize="12sp"
+                                android:textColor="@color/colorOnPrimaryContainer" />
+                        </LinearLayout>
+
+                        <View
+                            android:layout_width="1dp"
+                            android:layout_height="match_parent"
+                            android:background="@color/colorPrimary"
+                            android:alpha="0.3" />
+
+                        <LinearLayout
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:orientation="vertical"
+                            android:gravity="center">
+                            <TextView
+                                android:id="@+id/tvStatPrepared"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="0"
+                                android:textSize="26sp"
+                                android:textStyle="bold"
+                                android:textColor="@color/colorOnPrimaryContainer" />
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="Packed"
+                                android:textSize="12sp"
+                                android:textColor="@color/colorOnPrimaryContainer" />
+                        </LinearLayout>
+
+                        <View
+                            android:layout_width="1dp"
+                            android:layout_height="match_parent"
+                            android:background="@color/colorPrimary"
+                            android:alpha="0.3" />
+
+                        <LinearLayout
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:orientation="vertical"
+                            android:gravity="center">
+                            <TextView
+                                android:id="@+id/tvStatRemaining"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="0"
+                                android:textSize="26sp"
+                                android:textStyle="bold"
+                                android:textColor="@color/colorOnPrimaryContainer" />
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="Remaining"
+                                android:textSize="12sp"
+                                android:textColor="@color/colorOnPrimaryContainer" />
+                        </LinearLayout>
+
+                    </LinearLayout>
+                </com.google.android.material.card.MaterialCardView>
+
+                <!-- ── My Trips label ── -->
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="My Trips"
+                    android:textSize="16sp"
+                    android:textStyle="bold"
+                    android:textColor="?attr/colorOnSurface"
+                    android:layout_marginStart="16dp"
+                    android:layout_marginTop="14dp"
+                    android:layout_marginBottom="4dp" />
+
+                <!-- ── Trip list ── -->
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/recyclerViewTrips"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:nestedScrollingEnabled="false"
+                    android:padding="4dp"
+                    android:paddingBottom="8dp"
+                    android:clipToPadding="false" />
+
+                <!-- Empty state -->
+                <TextView
+                    android:id="@+id/tvEmpty"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_marginTop="32dp"
+                    android:layout_marginBottom="16dp"
+                    android:text="@string/no_trips"
+                    android:textSize="16sp"
+                    android:textColor="?attr/colorOnSurfaceVariant"
+                    android:gravity="center"
+                    android:visibility="gone" />
+
+            </LinearLayout>
+        </ScrollView>
+
+        <!-- Bottom Navigation -->
+        <com.google.android.material.bottomnavigation.BottomNavigationView
+            android:id="@+id/bottomNav"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom"
+            app:menu="@menu/menu_bottom_nav"
+            app:labelVisibilityMode="labeled"
+            app:itemIconSize="28dp"
+            app:itemIconTint="@color/nav_icon_color"
+            app:itemTextColor="@color/nav_icon_color"
+            android:elevation="8dp" />
+
+        <!-- FAB – floats above bottom nav -->
+        <com.google.android.material.floatingactionbutton.FloatingActionButton
+            android:id="@+id/fabAddTrip"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:text="@string/no_trips"
-            android:textSize="16sp"
-            android:textColor="?attr/colorOnSurfaceVariant"
-            android:visibility="gone" />
+            android:layout_gravity="bottom|end"
+            android:layout_marginEnd="20dp"
+            android:layout_marginBottom="76dp"
+            android:contentDescription="@string/add_trip"
+            app:fabCustomSize="68dp"
+            app:maxImageSize="32dp"
+            app:srcCompat="@android:drawable/ic_input_add"
+            app:tint="@color/white" />
 
     </FrameLayout>
 
-    <!-- Floating Action Button – add trip -->
-    <com.google.android.material.floatingactionbutton.FloatingActionButton
-        android:id="@+id/fabAddTrip"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="bottom|end"
-        android:layout_margin="16dp"
-        android:contentDescription="@string/add_trip"
-        app:srcCompat="@android:drawable/ic_input_add"
-        app:tint="@color/white" />
-
-</androidx.coordinatorlayout.widget.CoordinatorLayout>
+</LinearLayout>

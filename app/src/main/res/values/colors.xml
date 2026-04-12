@@ -1,36 +1,36 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <!-- Material Design 3 – Deep Teal / Blue palette -->
-    <color name="colorPrimary">#006874</color>
+    <!-- Material Design 3 – Rose/Lavender palette -->
+    <color name="colorPrimary">#7D5F6B</color>
     <color name="colorOnPrimary">#FFFFFF</color>
-    <color name="colorPrimaryContainer">#97F0FF</color>
-    <color name="colorOnPrimaryContainer">#001F24</color>
+    <color name="colorPrimaryContainer">#ECCAC6</color>
+    <color name="colorOnPrimaryContainer">#2D1520</color>
 
-    <color name="colorSecondary">#4A6267</color>
+    <color name="colorSecondary">#888991</color>
     <color name="colorOnSecondary">#FFFFFF</color>
-    <color name="colorSecondaryContainer">#CDE7EC</color>
-    <color name="colorOnSecondaryContainer">#051F23</color>
+    <color name="colorSecondaryContainer">#E5E5F2</color>
+    <color name="colorOnSecondaryContainer">#1E1E2A</color>
 
-    <color name="colorTertiary">#525E7D</color>
+    <color name="colorTertiary">#8C7060</color>
     <color name="colorOnTertiary">#FFFFFF</color>
-    <color name="colorTertiaryContainer">#DAE2FF</color>
-    <color name="colorOnTertiaryContainer">#0E1B37</color>
+    <color name="colorTertiaryContainer">#EADACF</color>
+    <color name="colorOnTertiaryContainer">#2A1A0E</color>
 
-    <color name="colorBackground">#FAFDFD</color>
-    <color name="colorOnBackground">#191C1D</color>
+    <color name="colorBackground">#FDF6F6</color>
+    <color name="colorOnBackground">#2D1520</color>
 
-    <color name="colorSurface">#FAFDFD</color>
-    <color name="colorOnSurface">#191C1D</color>
-    <color name="colorSurfaceVariant">#DBE4E6</color>
-    <color name="colorOnSurfaceVariant">#3F484A</color>
+    <color name="colorSurface">#FDF6F6</color>
+    <color name="colorOnSurface">#2D1520</color>
+    <color name="colorSurfaceVariant">#E5E5F2</color>
+    <color name="colorOnSurfaceVariant">#5A4A52</color>
 
     <color name="colorError">#BA1A1A</color>
     <color name="colorOnError">#FFFFFF</color>
 
     <!-- Priority badge colours -->
-    <color name="priority_high">#BA1A1A</color>
-    <color name="priority_normal">#006874</color>
-    <color name="priority_low">#4A6267</color>
+    <color name="priority_high">#C62828</color>
+    <color name="priority_normal">#7D5F6B</color>
+    <color name="priority_low">#888991</color>
 
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
