@@ -55,155 +55,37 @@
 
                 </com.google.android.material.card.MaterialCardView>
 
-                <!-- ── Destination Cards ── -->
+                <!-- ── My Previous Trips label (hidden when empty) ── -->
                 <TextView
+                    android:id="@+id/tvPastTripsLabel"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Explore ✈"
+                    android:text="My Previous Trips"
                     android:textSize="16sp"
                     android:textStyle="bold"
                     android:textColor="?attr/colorOnSurface"
                     android:layout_marginStart="16dp"
                     android:layout_marginTop="14dp"
-                    android:layout_marginBottom="8dp" />
+                    android:layout_marginBottom="8dp"
+                    android:visibility="gone" />
 
+                <!-- ── My Previous Trips horizontal scroll ── -->
                 <HorizontalScrollView
+                    android:id="@+id/hsvPastTrips"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:scrollbars="none"
                     android:paddingStart="12dp"
                     android:paddingEnd="12dp"
-                    android:clipToPadding="false">
+                    android:clipToPadding="false"
+                    android:visibility="gone">
 
                     <LinearLayout
+                        android:id="@+id/llPastTrips"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:orientation="horizontal">
+                        android:orientation="horizontal" />
 
-                        <!-- Jeddah -->
-                        <com.google.android.material.card.MaterialCardView
-                            android:layout_width="120dp"
-                            android:layout_height="110dp"
-                            android:layout_marginEnd="10dp"
-                            app:cardCornerRadius="18dp"
-                            app:cardElevation="2dp"
-                            app:cardBackgroundColor="#7D5F6B"
-                            app:strokeWidth="0dp">
-                            <LinearLayout
-                                android:layout_width="match_parent"
-                                android:layout_height="match_parent"
-                                android:orientation="vertical"
-                                android:gravity="center"
-                                android:padding="12dp">
-                                <ImageView
-                                    android:layout_width="32dp"
-                                    android:layout_height="32dp"
-                                    android:src="@drawable/ic_flight"
-                                    android:contentDescription="Jeddah" />
-                                <TextView
-                                    android:layout_width="wrap_content"
-                                    android:layout_height="wrap_content"
-                                    android:text="Jeddah"
-                                    android:textColor="#FFFFFF"
-                                    android:textSize="13sp"
-                                    android:textStyle="bold"
-                                    android:layout_marginTop="8dp" />
-                            </LinearLayout>
-                        </com.google.android.material.card.MaterialCardView>
-
-                        <!-- Riyadh -->
-                        <com.google.android.material.card.MaterialCardView
-                            android:layout_width="120dp"
-                            android:layout_height="110dp"
-                            android:layout_marginEnd="10dp"
-                            app:cardCornerRadius="18dp"
-                            app:cardElevation="2dp"
-                            app:cardBackgroundColor="#5C4A6E"
-                            app:strokeWidth="0dp">
-                            <LinearLayout
-                                android:layout_width="match_parent"
-                                android:layout_height="match_parent"
-                                android:orientation="vertical"
-                                android:gravity="center"
-                                android:padding="12dp">
-                                <ImageView
-                                    android:layout_width="32dp"
-                                    android:layout_height="32dp"
-                                    android:src="@drawable/ic_flight"
-                                    android:contentDescription="Riyadh" />
-                                <TextView
-                                    android:layout_width="wrap_content"
-                                    android:layout_height="wrap_content"
-                                    android:text="Riyadh"
-                                    android:textColor="#FFFFFF"
-                                    android:textSize="13sp"
-                                    android:textStyle="bold"
-                                    android:layout_marginTop="8dp" />
-                            </LinearLayout>
-                        </com.google.android.material.card.MaterialCardView>
-
-                        <!-- Makkah -->
-                        <com.google.android.material.card.MaterialCardView
-                            android:layout_width="120dp"
-                            android:layout_height="110dp"
-                            android:layout_marginEnd="10dp"
-                            app:cardCornerRadius="18dp"
-                            app:cardElevation="2dp"
-                            app:cardBackgroundColor="#8C7060"
-                            app:strokeWidth="0dp">
-                            <LinearLayout
-                                android:layout_width="match_parent"
-                                android:layout_height="match_parent"
-                                android:orientation="vertical"
-                                android:gravity="center"
-                                android:padding="12dp">
-                                <ImageView
-                                    android:layout_width="32dp"
-                                    android:layout_height="32dp"
-                                    android:src="@drawable/ic_flight"
-                                    android:contentDescription="Makkah" />
-                                <TextView
-                                    android:layout_width="wrap_content"
-                                    android:layout_height="wrap_content"
-                                    android:text="Makkah"
-                                    android:textColor="#FFFFFF"
-                                    android:textSize="13sp"
-                                    android:textStyle="bold"
-                                    android:layout_marginTop="8dp" />
-                            </LinearLayout>
-                        </com.google.android.material.card.MaterialCardView>
-
-                        <!-- Dubai -->
-                        <com.google.android.material.card.MaterialCardView
-                            android:layout_width="120dp"
-                            android:layout_height="110dp"
-                            app:cardCornerRadius="18dp"
-                            app:cardElevation="2dp"
-                            app:cardBackgroundColor="#4A5568"
-                            app:strokeWidth="0dp">
-                            <LinearLayout
-                                android:layout_width="match_parent"
-                                android:layout_height="match_parent"
-                                android:orientation="vertical"
-                                android:gravity="center"
-                                android:padding="12dp">
-                                <ImageView
-                                    android:layout_width="32dp"
-                                    android:layout_height="32dp"
-                                    android:src="@drawable/ic_flight"
-                                    android:contentDescription="Dubai" />
-                                <TextView
-                                    android:layout_width="wrap_content"
-                                    android:layout_height="wrap_content"
-                                    android:text="Dubai"
-                                    android:textColor="#FFFFFF"
-                                    android:textSize="13sp"
-                                    android:textStyle="bold"
-                                    android:layout_marginTop="8dp" />
-                            </LinearLayout>
-                        </com.google.android.material.card.MaterialCardView>
-
-                    </LinearLayout>
                 </HorizontalScrollView>
 
                 <!-- ── Stats summary card ── -->

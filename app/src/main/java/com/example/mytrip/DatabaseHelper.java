@@ -227,22 +227,51 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         SQLiteDatabase db = this.getReadableDatabase();
         String today = new java.text.SimpleDateFormat("yyyy-MM-dd", java.util.Locale.US)
                 .format(new java.util.Date());
-        // Prefer nearest upcoming trip; fall back to most recent past trip
-        Cursor cursor = db.rawQuery("SELECT " + TRIP_DESTINATION
-                + " FROM " + TABLE_TRIPS
-                + " WHERE " + TRIP_DATE + " >= ?"
-                + " ORDER BY " + TRIP_DATE + " ASC LIMIT 1", new String[]{today});
-        if (!cursor.moveToFirst()) {
-            cursor.close();
-            cursor = db.rawQuery("SELECT " + TRIP_DESTINATION
-                    + " FROM " + TABLE_TRIPS
-                    + " ORDER BY " + TRIP_DATE + " DESC LIMIT 1", null);
-        }
-        String name = "No trips yet";
+
+        // First: nearest upcoming trip (date >= today), sorted by date ASC
+        Cursor cursor = db.rawQuery(
+                "SELECT " + TRIP_DESTINATION + " FROM " + TABLE_TRIPS
+                        + " WHERE " + TRIP_DATE + " >= ? ORDER BY " + TRIP_DATE + " ASC LIMIT 1",
+                new String[]{today});
+
+        String name = null;
+        if (cursor.moveToFirst()) name = cursor.getString(0);
+        cursor.close();
+
+        if (name != null) { db.close(); return name; }
+
+        // Fallback: most recent trip by date
+        cursor = db.rawQuery("SELECT " + TRIP_DESTINATION + " FROM " + TABLE_TRIPS
+                + " ORDER BY " + TRIP_DATE + " DESC LIMIT 1", null);
+        name = "—";
         if (cursor.moveToFirst()) name = cursor.getString(0);
         cursor.close();
         db.close();
         return name;
+    }
+
+    /** Returns trips whose date is strictly before today, most recent first. */
+    public List<String[]> getPastTrips() {
+        SQLiteDatabase db = this.getReadableDatabase();
+        String today = new java.text.SimpleDateFormat("yyyy-MM-dd", java.util.Locale.US)
+                .format(new java.util.Date());
+        Cursor cursor = db.rawQuery(
+                "SELECT " + TRIP_ID + ", " + TRIP_DESTINATION + ", " + TRIP_DATE
+                        + " FROM " + TABLE_TRIPS
+                        + " WHERE " + TRIP_DATE + " < ?"
+                        + " ORDER BY " + TRIP_DATE + " DESC",
+                new String[]{today});
+        List<String[]> list = new ArrayList<>();
+        while (cursor.moveToNext()) {
+            list.add(new String[]{
+                    cursor.getString(0),
+                    cursor.getString(1),
+                    cursor.getString(2)
+            });
+        }
+        cursor.close();
+        db.close();
+        return list;
     }
 
     // ==================== Utility Functions ====================
