@@ -155,9 +155,9 @@ public class MainActivity extends AppCompatActivity
         }
     }
 
-    /** Builds the My Previous Trips horizontal cards from past DB entries. */
+    /** Builds the My Trips Preview horizontal cards (up to 5 most recent). */
     private void loadPastTrips() {
-        List<String[]> pastTrips = dbHelper.getPastTrips();
+        List<String[]> pastTrips = dbHelper.getRecentTrips();
         llPastTrips.removeAllViews();
 
         if (pastTrips.isEmpty()) {

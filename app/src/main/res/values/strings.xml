@@ -13,7 +13,7 @@
     <string name="dark_mode">Dark Mode</string>
     <string name="light_mode">Light Mode</string>
     <string name="statistics_menu">Dashboard</string>
-    <string name="support_menu">Meet the Team</string>
+    <string name="support_menu">About</string>
 
     <!-- Add Trip Dialog -->
     <string name="destination">Destination</string>
@@ -46,7 +46,7 @@
     <string name="completion_rate">Completion Rate</string>
 
     <!-- Meet the Team Screen -->
-    <string name="support">Meet the Team</string>
+    <string name="support">About</string>
     <string name="team_section">Team Members</string>
     <string name="supervisor_section">Supervisor</string>
     <string name="professor_section">Professor</string>
