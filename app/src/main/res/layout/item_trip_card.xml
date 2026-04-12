@@ -3,16 +3,17 @@
     Location : app/src/main/res/layout/
     Purpose  : Single trip card shown in the RecyclerView on the home screen
 -->
-<androidx.cardview.widget.CardView
+<com.google.android.material.card.MaterialCardView
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:id="@+id/cardTrip"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:layout_margin="8dp"
-    android:foreground="?attr/selectableItemBackground"
+    android:layout_marginHorizontal="12dp"
+    android:layout_marginVertical="6dp"
     app:cardCornerRadius="16dp"
-    app:cardElevation="3dp"
+    app:cardElevation="2dp"
+    app:strokeWidth="0dp"
     app:cardBackgroundColor="?attr/colorSurface">
 
     <LinearLayout
@@ -22,17 +23,33 @@
         android:padding="16dp"
         android:gravity="center_vertical">
 
-        <!-- Letter avatar -->
-        <TextView
-            android:id="@+id/tvInitial"
-            android:layout_width="48dp"
-            android:layout_height="48dp"
-            android:gravity="center"
-            android:textSize="22sp"
-            android:textStyle="bold"
-            android:textColor="#FFFFFF"
-            android:background="@drawable/bg_circle"
-            android:contentDescription="@string/cd_trip_icon" />
+        <!-- Circular avatar with destination initial + flight icon overlay -->
+        <FrameLayout
+            android:layout_width="52dp"
+            android:layout_height="52dp">
+
+            <TextView
+                android:id="@+id/tvInitial"
+                android:layout_width="52dp"
+                android:layout_height="52dp"
+                android:gravity="center"
+                android:textSize="22sp"
+                android:textStyle="bold"
+                android:textColor="#FFFFFF"
+                android:background="@drawable/bg_circle"
+                android:contentDescription="@string/cd_trip_icon" />
+
+            <!-- Flight icon badge at bottom-right -->
+            <ImageView
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:layout_gravity="bottom|end"
+                android:src="@drawable/ic_flight"
+                android:background="@drawable/bg_circle"
+                android:padding="2dp"
+                android:contentDescription="Flight" />
+
+        </FrameLayout>
 
         <!-- Destination + date -->
         <LinearLayout
@@ -51,14 +68,30 @@
                 android:textColor="?attr/colorOnSurface"
                 android:text="Destination" />
 
-            <TextView
-                android:id="@+id/tvDate"
+            <LinearLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:textSize="13sp"
-                android:textColor="?attr/colorOnSurfaceVariant"
-                android:layout_marginTop="3dp"
-                android:text="Date" />
+                android:orientation="horizontal"
+                android:gravity="center_vertical"
+                android:layout_marginTop="4dp">
+
+                <ImageView
+                    android:layout_width="14dp"
+                    android:layout_height="14dp"
+                    android:src="@drawable/ic_calendar"
+                    app:tint="?attr/colorOnSurfaceVariant"
+                    android:contentDescription="Date" />
+
+                <TextView
+                    android:id="@+id/tvDate"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="13sp"
+                    android:textColor="?attr/colorOnSurfaceVariant"
+                    android:layout_marginStart="4dp"
+                    android:text="Date" />
+
+            </LinearLayout>
 
         </LinearLayout>
 
@@ -68,8 +101,8 @@
             android:layout_height="wrap_content"
             android:text="›"
             android:textSize="28sp"
-            android:textColor="?attr/colorOnSurfaceVariant" />
+            android:textColor="?attr/colorPrimary" />
 
     </LinearLayout>
 
-</androidx.cardview.widget.CardView>
+</com.google.android.material.card.MaterialCardView>

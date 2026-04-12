@@ -8,6 +8,7 @@ import android.view.MenuItem;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 
+import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.button.MaterialButton;
 
 /**
@@ -45,6 +46,26 @@ public class SupportActivity extends AppCompatActivity {
             Intent browserIntent = new Intent(Intent.ACTION_VIEW,
                     Uri.parse("https://github.com/NoufAl-q/MyTrip"));
             startActivity(browserIntent);
+        });
+
+        // Bottom Navigation – highlight About tab
+        BottomNavigationView bottomNav = findViewById(R.id.bottomNav);
+        bottomNav.setSelectedItemId(R.id.nav_about);
+        bottomNav.setOnItemSelectedListener(item -> {
+            int id = item.getItemId();
+            if (id == R.id.nav_home) {
+                startActivity(new Intent(this, MainActivity.class)
+                        .addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP));
+                overridePendingTransition(0, 0);
+                return true;
+            } else if (id == R.id.nav_stats) {
+                startActivity(new Intent(this, StatisticsActivity.class));
+                overridePendingTransition(0, 0);
+                return true;
+            } else if (id == R.id.nav_about) {
+                return true;
+            }
+            return false;
         });
     }
 
