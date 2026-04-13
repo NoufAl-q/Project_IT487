@@ -41,12 +41,16 @@ public class StatisticsActivity extends AppCompatActivity {
         int remaining     = totalItems - preparedItems;
         String nextTrip   = dbHelper.getNextTrip();
 
+        // Completion percentage
+        int pct = (totalItems > 0) ? (preparedItems * 100 / totalItems) : 0;
+
         // Populate TableLayout cells
         ((TextView) findViewById(R.id.tvTotalTrips)).setText(String.valueOf(totalTrips));
         ((TextView) findViewById(R.id.tvTotalItems)).setText(String.valueOf(totalItems));
         ((TextView) findViewById(R.id.tvPreparedItems)).setText(String.valueOf(preparedItems));
         ((TextView) findViewById(R.id.tvRemainingItems)).setText(String.valueOf(remaining));
         ((TextView) findViewById(R.id.tvNextTrip)).setText(nextTrip);
+        ((TextView) findViewById(R.id.tvCompletionRate)).setText(pct + "%");
 
         // Bottom Navigation – highlight Stats tab
         BottomNavigationView bottomNav = findViewById(R.id.bottomNav);
@@ -67,6 +71,12 @@ public class StatisticsActivity extends AppCompatActivity {
             }
             return false;
         });
+    }
+
+    @Override
+    public boolean onSupportNavigateUp() {
+        finish();
+        return true;
     }
 
     @Override

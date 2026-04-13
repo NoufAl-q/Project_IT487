@@ -1,17 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
-<!--
-    Location : app/src/main/res/layout/
-    Purpose  : Static About / Support screen with team info, IDs, and supervisor
--->
 <LinearLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
+    android:fitsSystemWindows="true"
     android:background="?android:attr/colorBackground">
 
-    <!-- Toolbar -->
     <com.google.android.material.appbar.MaterialToolbar
         android:id="@+id/toolbar"
         android:layout_width="match_parent"
@@ -33,36 +29,36 @@
             android:orientation="vertical">
 
             <!-- App header -->
-            <androidx.cardview.widget.CardView
-                xmlns:app2="http://schemas.android.com/apk/res-auto"
+            <com.google.android.material.card.MaterialCardView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="16dp"
-                app2:cardCornerRadius="16dp"
-                app2:cardElevation="4dp"
-                app2:cardBackgroundColor="?attr/colorPrimaryContainer">
+                app:cardCornerRadius="20dp"
+                app:cardElevation="0dp"
+                app:cardBackgroundColor="@color/colorPrimaryContainer"
+                app:strokeWidth="0dp">
 
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:orientation="vertical"
-                    android:padding="20dp"
+                    android:padding="24dp"
                     android:gravity="center">
 
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="MyTrip"
-                        android:textSize="28sp"
+                        android:textSize="30sp"
                         android:textStyle="bold"
-                        android:textColor="?attr/colorOnPrimaryContainer" />
+                        android:textColor="@color/colorOnPrimaryContainer" />
 
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="@string/app_version"
                         android:textSize="13sp"
-                        android:textColor="?attr/colorOnPrimaryContainer"
+                        android:textColor="@color/colorOnPrimaryContainer"
                         android:layout_marginTop="4dp" />
 
                     <TextView
@@ -70,22 +66,23 @@
                         android:layout_height="wrap_content"
                         android:text="IT487 – Mobile App Development"
                         android:textSize="13sp"
-                        android:textColor="?attr/colorOnPrimaryContainer"
+                        android:textColor="@color/colorOnPrimaryContainer"
                         android:layout_marginTop="2dp" />
 
                 </LinearLayout>
 
-            </androidx.cardview.widget.CardView>
+            </com.google.android.material.card.MaterialCardView>
 
-            <!-- Team Members card -->
-            <androidx.cardview.widget.CardView
-                xmlns:app3="http://schemas.android.com/apk/res-auto"
+            <!-- Team Members card (sorted alphabetically: Afnan, Nouf, Rahaf, Sara) -->
+            <com.google.android.material.card.MaterialCardView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="16dp"
-                app3:cardCornerRadius="16dp"
-                app3:cardElevation="3dp"
-                app3:cardBackgroundColor="?attr/colorSurface">
+                app:cardCornerRadius="20dp"
+                app:cardElevation="0dp"
+                app:strokeWidth="1dp"
+                app:strokeColor="@color/colorSurfaceVariant"
+                app:cardBackgroundColor="?attr/colorSurface">
 
                 <LinearLayout
                     android:layout_width="match_parent"
@@ -100,108 +97,172 @@
                         android:textSize="16sp"
                         android:textStyle="bold"
                         android:textColor="?attr/colorPrimary"
-                        android:layout_marginBottom="12dp" />
+                        android:layout_marginBottom="16dp" />
 
-                    <!-- Student 1 -->
+                    <!-- Afnan -->
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:orientation="horizontal"
                         android:gravity="center_vertical"
-                        android:layout_marginBottom="10dp">
-
+                        android:layout_marginBottom="14dp">
                         <TextView
-                            android:layout_width="48dp"
-                            android:layout_height="48dp"
+                            android:layout_width="46dp"
+                            android:layout_height="46dp"
                             android:gravity="center"
-                            android:textSize="18sp"
+                            android:textSize="17sp"
                             android:textStyle="bold"
                             android:textColor="#FFFFFF"
                             android:background="@drawable/bg_circle"
-                            android:text="N" />
-
+                            android:text="A" />
                         <LinearLayout
                             android:layout_width="0dp"
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
                             android:orientation="vertical"
                             android:layout_marginStart="12dp">
-
                             <TextView
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:text="Nouf Al-Qahtani"
-                                android:textSize="15sp"
+                                android:text="Afnan Sanad Alharbi"
+                                android:textSize="14sp"
                                 android:textStyle="bold"
                                 android:textColor="?attr/colorOnSurface" />
-
                             <TextView
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:text="ID: 202xxxxxx"
-                                android:textSize="13sp"
+                                android:text="ID: S220027627"
+                                android:textSize="12sp"
                                 android:textColor="?attr/colorOnSurfaceVariant" />
-
                         </LinearLayout>
-
                     </LinearLayout>
 
-                    <!-- Student 2 -->
+                    <!-- Nouf -->
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:gravity="center_vertical"
+                        android:layout_marginBottom="14dp">
+                        <TextView
+                            android:layout_width="46dp"
+                            android:layout_height="46dp"
+                            android:gravity="center"
+                            android:textSize="17sp"
+                            android:textStyle="bold"
+                            android:textColor="#FFFFFF"
+                            android:background="@drawable/bg_circle"
+                            android:text="N" />
+                        <LinearLayout
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:orientation="vertical"
+                            android:layout_marginStart="12dp">
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="Nouf Ibrahim Al-Qurashi"
+                                android:textSize="14sp"
+                                android:textStyle="bold"
+                                android:textColor="?attr/colorOnSurface" />
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="ID: S220015423"
+                                android:textSize="12sp"
+                                android:textColor="?attr/colorOnSurfaceVariant" />
+                        </LinearLayout>
+                    </LinearLayout>
+
+                    <!-- Rahaf -->
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:gravity="center_vertical"
+                        android:layout_marginBottom="14dp">
+                        <TextView
+                            android:layout_width="46dp"
+                            android:layout_height="46dp"
+                            android:gravity="center"
+                            android:textSize="17sp"
+                            android:textStyle="bold"
+                            android:textColor="#FFFFFF"
+                            android:background="@drawable/bg_circle"
+                            android:text="R" />
+                        <LinearLayout
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:orientation="vertical"
+                            android:layout_marginStart="12dp">
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="Rahaf Mohsen Alsulami"
+                                android:textSize="14sp"
+                                android:textStyle="bold"
+                                android:textColor="?attr/colorOnSurface" />
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="ID: S220014391"
+                                android:textSize="12sp"
+                                android:textColor="?attr/colorOnSurfaceVariant" />
+                        </LinearLayout>
+                    </LinearLayout>
+
+                    <!-- Sara -->
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:orientation="horizontal"
                         android:gravity="center_vertical">
-
                         <TextView
-                            android:layout_width="48dp"
-                            android:layout_height="48dp"
+                            android:layout_width="46dp"
+                            android:layout_height="46dp"
                             android:gravity="center"
-                            android:textSize="18sp"
+                            android:textSize="17sp"
                             android:textStyle="bold"
                             android:textColor="#FFFFFF"
                             android:background="@drawable/bg_circle"
                             android:text="S" />
-
                         <LinearLayout
                             android:layout_width="0dp"
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
                             android:orientation="vertical"
                             android:layout_marginStart="12dp">
-
                             <TextView
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:text="Student 2 Name"
-                                android:textSize="15sp"
+                                android:text="Sara Mohammed Zain Abdulrahman"
+                                android:textSize="14sp"
                                 android:textStyle="bold"
                                 android:textColor="?attr/colorOnSurface" />
-
                             <TextView
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:text="ID: 202xxxxxx"
-                                android:textSize="13sp"
+                                android:text="ID: S220021795"
+                                android:textSize="12sp"
                                 android:textColor="?attr/colorOnSurfaceVariant" />
-
                         </LinearLayout>
-
                     </LinearLayout>
 
                 </LinearLayout>
+            </com.google.android.material.card.MaterialCardView>
 
-            </androidx.cardview.widget.CardView>
-
-            <!-- Supervisor card -->
-            <androidx.cardview.widget.CardView
-                xmlns:app4="http://schemas.android.com/apk/res-auto"
+            <!-- Professor card -->
+            <com.google.android.material.card.MaterialCardView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="16dp"
-                app4:cardCornerRadius="16dp"
-                app4:cardElevation="3dp"
-                app4:cardBackgroundColor="?attr/colorSurface">
+                app:cardCornerRadius="20dp"
+                app:cardElevation="0dp"
+                app:strokeWidth="1dp"
+                app:strokeColor="@color/colorSurfaceVariant"
+                app:cardBackgroundColor="?attr/colorSurface">
 
                 <LinearLayout
                     android:layout_width="match_parent"
@@ -212,39 +273,67 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="@string/supervisor_section"
+                        android:text="@string/professor_section"
                         android:textSize="16sp"
                         android:textStyle="bold"
                         android:textColor="?attr/colorPrimary"
-                        android:layout_marginBottom="8dp" />
+                        android:layout_marginBottom="10dp" />
 
-                    <TextView
-                        android:layout_width="wrap_content"
+                    <LinearLayout
+                        android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:text="Dr. Supervisor Name"
-                        android:textSize="15sp"
-                        android:textColor="?attr/colorOnSurface" />
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="College of Computer Science and Information Systems"
-                        android:textSize="13sp"
-                        android:textColor="?attr/colorOnSurfaceVariant"
-                        android:layout_marginTop="4dp" />
+                        android:orientation="horizontal"
+                        android:gravity="center_vertical">
+                        <TextView
+                            android:layout_width="46dp"
+                            android:layout_height="46dp"
+                            android:gravity="center"
+                            android:textSize="17sp"
+                            android:textStyle="bold"
+                            android:textColor="#FFFFFF"
+                            android:background="@drawable/bg_circle"
+                            android:text="D" />
+                        <LinearLayout
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:orientation="vertical"
+                            android:layout_marginStart="12dp">
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="Dr. Somayah Ali Hebah"
+                                android:textSize="14sp"
+                                android:textStyle="bold"
+                                android:textColor="?attr/colorOnSurface" />
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="Computing and Informatics College"
+                                android:textSize="12sp"
+                                android:textColor="?attr/colorOnSurfaceVariant"
+                                android:layout_marginTop="2dp" />
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="Saudi Electronic University"
+                                android:textSize="12sp"
+                                android:textColor="?attr/colorOnSurfaceVariant" />
+                        </LinearLayout>
+                    </LinearLayout>
 
                 </LinearLayout>
-
-            </androidx.cardview.widget.CardView>
+            </com.google.android.material.card.MaterialCardView>
 
             <!-- Contact card -->
-            <androidx.cardview.widget.CardView
-                xmlns:app5="http://schemas.android.com/apk/res-auto"
+            <com.google.android.material.card.MaterialCardView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                app5:cardCornerRadius="16dp"
-                app5:cardElevation="3dp"
-                app5:cardBackgroundColor="?attr/colorSurface">
+                app:cardCornerRadius="20dp"
+                app:cardElevation="0dp"
+                app:strokeWidth="1dp"
+                app:strokeColor="@color/colorSurfaceVariant"
+                app:cardBackgroundColor="?attr/colorSurface">
 
                 <LinearLayout
                     android:layout_width="match_parent"
@@ -259,38 +348,32 @@
                         android:textSize="16sp"
                         android:textStyle="bold"
                         android:textColor="?attr/colorPrimary"
-                        android:layout_marginBottom="8dp" />
+                        android:layout_marginBottom="4dp" />
 
                     <com.google.android.material.button.MaterialButton
                         android:id="@+id/btnEmail"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         style="@style/Widget.Material3.Button.TextButton"
-                        android:text="Send us an Email"
-                        android:textColor="?attr/colorPrimary" />
-
-                    <com.google.android.material.button.MaterialButton
-                        android:id="@+id/btnGitHub"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        style="@style/Widget.Material3.Button.TextButton"
-                        android:text="View on GitHub"
+                        android:text="Visit our Website"
                         android:textColor="?attr/colorPrimary" />
 
                 </LinearLayout>
-
-            </androidx.cardview.widget.CardView>
+            </com.google.android.material.card.MaterialCardView>
 
         </LinearLayout>
-
     </ScrollView>
 
     <!-- Bottom Navigation -->
     <com.google.android.material.bottomnavigation.BottomNavigationView
         android:id="@+id/bottomNav"
         android:layout_width="match_parent"
-        android:layout_height="56dp"
+        android:layout_height="wrap_content"
         app:menu="@menu/menu_bottom_nav"
-        app:labelVisibilityMode="labeled" />
+        app:labelVisibilityMode="labeled"
+        app:itemIconSize="28dp"
+        app:itemIconTint="@color/nav_icon_color"
+        app:itemTextColor="@color/nav_icon_color"
+        android:elevation="8dp" />
 
 </LinearLayout>
