@@ -77,14 +77,11 @@ public class ItemAdapter extends RecyclerView.Adapter<ItemAdapter.ItemViewHolder
             listener.onItemChecked(item, isChecked);
         });
 
+        // Edit button
+        holder.btnEdit.setOnClickListener(v -> listener.onItemEdit(item));
+
         // Delete button
         holder.btnDelete.setOnClickListener(v -> listener.onItemDelete(item));
-
-        // Long-press card → edit item
-        holder.cardView.setOnLongClickListener(v -> {
-            listener.onItemEdit(item);
-            return true;
-        });
     }
 
     @Override
@@ -99,6 +96,7 @@ public class ItemAdapter extends RecyclerView.Adapter<ItemAdapter.ItemViewHolder
         final TextView    tvItemName;
         final TextView    tvPriority;
         final CheckBox    checkBox;
+        final ImageButton btnEdit;
         final ImageButton btnDelete;
 
         ItemViewHolder(@NonNull View itemView) {
@@ -107,6 +105,7 @@ public class ItemAdapter extends RecyclerView.Adapter<ItemAdapter.ItemViewHolder
             tvItemName = itemView.findViewById(R.id.tvItemName);
             tvPriority = itemView.findViewById(R.id.tvPriority);
             checkBox   = itemView.findViewById(R.id.checkBoxItem);
+            btnEdit    = itemView.findViewById(R.id.btnEditItem);
             btnDelete  = itemView.findViewById(R.id.btnDeleteItem);
         }
     }
