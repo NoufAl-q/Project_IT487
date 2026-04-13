@@ -164,8 +164,27 @@ public class TripDetailActivity extends AppCompatActivity
             return true;
 
         } else if (id == R.id.action_share) {
-            // Student feature 2: share trip info + checklist via Intent.ACTION_SEND
             shareTrip();
+            return true;
+
+        } else if (id == R.id.action_edit_trip) {
+            Trip trip = new Trip(tripId, tripDestination, tripDate);
+            AddTripDialogFragment dialog = AddTripDialogFragment.newEditInstance(trip);
+            dialog.setOnTripAddedListener(() -> {
+                // Refresh local vars and toolbar title after edit
+                List<String[]> rows = dbHelper.getAllTrips();
+                for (String[] row : rows) {
+                    if (Integer.parseInt(row[0]) == tripId) {
+                        tripDestination = row[1];
+                        tripDate = row[2];
+                        break;
+                    }
+                }
+                if (getSupportActionBar() != null) {
+                    getSupportActionBar().setTitle(tripDestination);
+                }
+            });
+            dialog.show(getSupportFragmentManager(), "EditTripDialog");
             return true;
         }
 

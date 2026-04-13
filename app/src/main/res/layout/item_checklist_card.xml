@@ -60,8 +60,8 @@
         <!-- Edit button -->
         <ImageButton
             android:id="@+id/btnEditItem"
-            android:layout_width="36dp"
-            android:layout_height="36dp"
+            android:layout_width="28dp"
+            android:layout_height="28dp"
             android:src="@android:drawable/ic_menu_edit"
             android:background="?attr/selectableItemBackgroundBorderless"
             android:tint="?attr/colorPrimary"

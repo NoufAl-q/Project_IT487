@@ -17,4 +17,10 @@
         app:showAsAction="always|collapseActionView"
         app:actionViewClass="androidx.appcompat.widget.SearchView" />
 
+    <!-- Edit trip – in overflow (3-dot) menu -->
+    <item
+        android:id="@+id/action_edit_trip"
+        android:title="@string/edit_trip"
+        app:showAsAction="never" />
+
 </menu>
