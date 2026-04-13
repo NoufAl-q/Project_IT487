@@ -1,28 +1,28 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <!-- Dark-mode overrides – rose/lavender palette (matches light theme hue) -->
+    <!-- Dark-mode overrides – dusty rose / lavender / mint palette -->
     <style name="Base.Theme.MyTrip" parent="Theme.Material3.DayNight.NoActionBar">
-        <!-- Primary: lighter rose for dark mode -->
-        <item name="colorPrimary">#E8B4BC</item>
-        <item name="colorOnPrimary">#4A1520</item>
-        <item name="colorPrimaryContainer">#6B3040</item>
-        <item name="colorOnPrimaryContainer">#FFD9DB</item>
+        <!-- Primary: lighter dusty rose for dark bg -->
+        <item name="colorPrimary">#E8B4B4</item>
+        <item name="colorOnPrimary">#4A1820</item>
+        <item name="colorPrimaryContainer">#6B3035</item>
+        <item name="colorOnPrimaryContainer">#FFD9D9</item>
         <!-- Secondary: lighter lavender -->
-        <item name="colorSecondary">#C9C9D4</item>
-        <item name="colorOnSecondary">#303040</item>
-        <item name="colorSecondaryContainer">#484855</item>
-        <item name="colorOnSecondaryContainer">#E5E5F2</item>
-        <!-- Tertiary: lighter mocha -->
-        <item name="colorTertiary">#D4BFB0</item>
-        <item name="colorOnTertiary">#3A2510</item>
-        <item name="colorTertiaryContainer">#553C28</item>
-        <item name="colorOnTertiaryContainer">#EADACF</item>
+        <item name="colorSecondary">#C8B8D8</item>
+        <item name="colorOnSecondary">#2A1E3D</item>
+        <item name="colorSecondaryContainer">#483858</item>
+        <item name="colorOnSecondaryContainer">#EBE5F5</item>
+        <!-- Tertiary: lighter mint -->
+        <item name="colorTertiary">#A8D0CC</item>
+        <item name="colorOnTertiary">#0E3230</item>
+        <item name="colorTertiaryContainer">#1E4845</item>
+        <item name="colorOnTertiaryContainer">#D8EFED</item>
         <!-- Background / Surface: dark with rose tint -->
-        <item name="android:colorBackground">#1A1318</item>
-        <item name="colorSurface">#1A1318</item>
-        <item name="colorOnSurface">#EDE0E2</item>
-        <item name="colorSurfaceVariant">#4A3840</item>
-        <item name="colorOnSurfaceVariant">#CCBDC0</item>
+        <item name="android:colorBackground">#1C1418</item>
+        <item name="colorSurface">#1C1418</item>
+        <item name="colorOnSurface">#EDE0E0</item>
+        <item name="colorSurfaceVariant">#4A3838</item>
+        <item name="colorOnSurfaceVariant">#CCBCBC</item>
         <!-- Error -->
         <item name="colorError">#FFB4AB</item>
         <item name="colorOnError">#690005</item>

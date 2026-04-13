@@ -1,7 +1,6 @@
 package com.example.mytrip;
 
 import android.content.Intent;
-import android.net.Uri;
 import android.os.Bundle;
 import android.view.MenuItem;
 
@@ -31,12 +30,11 @@ public class SupportActivity extends AppCompatActivity {
             getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         }
 
-        // Website button – opens SEU website via implicit Intent
+        // Contact button – shows email in a details DialogFragment
         MaterialButton btnEmail = findViewById(R.id.btnEmail);
         btnEmail.setOnClickListener(v -> {
-            Intent browserIntent = new Intent(Intent.ACTION_VIEW,
-                    Uri.parse("https://seu.edu.sa/"));
-            startActivity(browserIntent);
+            new ContactDialogFragment()
+                    .show(getSupportFragmentManager(), "ContactDialog");
         });
 
         // Bottom Navigation – highlight About tab
