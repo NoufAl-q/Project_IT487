@@ -23,6 +23,7 @@ public class TripAdapter extends RecyclerView.Adapter<TripAdapter.TripViewHolder
     public interface OnTripClickListener {
         void onTripClick(Trip trip);
         void onTripLongClick(Trip trip);
+        void onTripEdit(Trip trip);
     }
 
     private final Context context;

@@ -72,8 +72,7 @@ public class TripDetailActivity extends AppCompatActivity
         // FAB – add item via DialogFragment
         FloatingActionButton fab = findViewById(R.id.fabAddItem);
         fab.setOnClickListener(v -> {
-            AddItemDialogFragment dialog = new AddItemDialogFragment();
-            dialog.setTripId(tripId);
+            AddItemDialogFragment dialog = AddItemDialogFragment.newAddInstance(tripId);
             dialog.setOnItemAddedListener(() -> loadItems(null));
             dialog.show(getSupportFragmentManager(), "AddItemDialog");
         });
@@ -123,6 +122,14 @@ public class TripDetailActivity extends AppCompatActivity
                 })
                 .setNegativeButton("No", null)
                 .show();
+    }
+
+    /** Long-press on item card → open edit dialog. */
+    @Override
+    public void onItemEdit(Item item) {
+        AddItemDialogFragment dialog = AddItemDialogFragment.newEditInstance(item);
+        dialog.setOnItemAddedListener(() -> loadItems(null));
+        dialog.show(getSupportFragmentManager(), "EditItemDialog");
     }
 
     // ── Options menu ──────────────────────────────────────────────────────────

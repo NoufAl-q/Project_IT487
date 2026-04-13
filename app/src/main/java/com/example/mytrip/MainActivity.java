@@ -95,7 +95,7 @@ public class MainActivity extends AppCompatActivity
         // FAB – show AddTripDialogFragment (DialogFragment requirement)
         FloatingActionButton fab = findViewById(R.id.fabAddTrip);
         fab.setOnClickListener(v -> {
-            AddTripDialogFragment dialog = new AddTripDialogFragment();
+            AddTripDialogFragment dialog = AddTripDialogFragment.newAddInstance();
             dialog.setOnTripAddedListener(() -> loadTrips(null));
             dialog.show(getSupportFragmentManager(), "AddTripDialog");
         });
@@ -246,15 +246,34 @@ public class MainActivity extends AppCompatActivity
     @Override
     public void onTripLongClick(Trip trip) {
         new AlertDialog.Builder(this)
-                .setTitle(R.string.delete_trip)
-                .setMessage(R.string.delete_trip_confirm)
-                .setPositiveButton("Yes", (d, w) -> {
-                    dbHelper.deleteTrip(trip.getId());
-                    Toast.makeText(this, R.string.trip_deleted, Toast.LENGTH_SHORT).show();
-                    loadTrips(null);
+                .setTitle(trip.getDestination())
+                .setItems(new String[]{
+                        getString(R.string.edit_trip),
+                        getString(R.string.delete_trip)
+                }, (d, which) -> {
+                    if (which == 0) {
+                        onTripEdit(trip);
+                    } else {
+                        new AlertDialog.Builder(this)
+                                .setTitle(R.string.delete_trip)
+                                .setMessage(R.string.delete_trip_confirm)
+                                .setPositiveButton("Yes", (d2, w) -> {
+                                    dbHelper.deleteTrip(trip.getId());
+                                    Toast.makeText(this, R.string.trip_deleted, Toast.LENGTH_SHORT).show();
+                                    loadTrips(null);
+                                })
+                                .setNegativeButton("No", null)
+                                .show();
+                    }
                 })
-                .setNegativeButton("No", null)
                 .show();
+    }
+
+    @Override
+    public void onTripEdit(Trip trip) {
+        AddTripDialogFragment dialog = AddTripDialogFragment.newEditInstance(trip);
+        dialog.setOnTripAddedListener(() -> loadTrips(null));
+        dialog.show(getSupportFragmentManager(), "EditTripDialog");
     }
 
     // ── Options menu ──────────────────────────────────────────────────────────
