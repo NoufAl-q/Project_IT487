@@ -75,18 +75,50 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         db.close();
     }
 
+    /** Returns upcoming trips (date >= today) sorted by date ASC (closest first). */
     public List<String[]> getAllTrips() {
         List<String[]> tripList = new ArrayList<>();
         SQLiteDatabase db = this.getReadableDatabase();
-        Cursor cursor = db.rawQuery("SELECT * FROM " + TABLE_TRIPS, null);
+        String today = new java.text.SimpleDateFormat("yyyy-MM-dd", java.util.Locale.US)
+                .format(new java.util.Date());
+        Cursor cursor = db.rawQuery(
+                "SELECT * FROM " + TABLE_TRIPS
+                        + " WHERE " + TRIP_DATE + " >= ?"
+                        + " ORDER BY " + TRIP_DATE + " ASC",
+                new String[]{today});
         if (cursor.moveToFirst()) {
             do {
-                String[] trip = new String[]{
+                tripList.add(new String[]{
                         cursor.getString(0),
                         cursor.getString(1),
                         cursor.getString(2)
-                };
-                tripList.add(trip);
+                });
+            } while (cursor.moveToNext());
+        }
+        cursor.close();
+        db.close();
+        return tripList;
+    }
+
+    /** Search upcoming trips (date >= today) by destination keyword. */
+    public List<String[]> searchUpcomingTrips(String keyword) {
+        List<String[]> tripList = new ArrayList<>();
+        SQLiteDatabase db = this.getReadableDatabase();
+        String today = new java.text.SimpleDateFormat("yyyy-MM-dd", java.util.Locale.US)
+                .format(new java.util.Date());
+        Cursor cursor = db.rawQuery(
+                "SELECT * FROM " + TABLE_TRIPS
+                        + " WHERE " + TRIP_DATE + " >= ?"
+                        + " AND " + TRIP_DESTINATION + " LIKE ?"
+                        + " ORDER BY " + TRIP_DATE + " ASC",
+                new String[]{today, "%" + keyword + "%"});
+        if (cursor.moveToFirst()) {
+            do {
+                tripList.add(new String[]{
+                        cursor.getString(0),
+                        cursor.getString(1),
+                        cursor.getString(2)
+                });
             } while (cursor.moveToNext());
         }
         cursor.close();

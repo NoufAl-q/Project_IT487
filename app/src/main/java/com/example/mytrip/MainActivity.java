@@ -133,7 +133,7 @@ public class MainActivity extends AppCompatActivity
         tripList.clear();
         List<String[]> rawList = (query == null || query.isEmpty())
                 ? dbHelper.getAllTrips()
-                : dbHelper.searchTrips(query);
+                : dbHelper.searchUpcomingTrips(query);
 
         for (String[] row : rawList) {
             tripList.add(new Trip(Integer.parseInt(row[0]), row[1], row[2]));
@@ -173,6 +173,7 @@ public class MainActivity extends AppCompatActivity
                 TypedValue.COMPLEX_UNIT_DIP, 1, getResources().getDisplayMetrics());
 
         for (int i = 0; i < pastTrips.size(); i++) {
+            final String tripIdStr = pastTrips.get(i)[0];
             String dest = pastTrips.get(i)[1];
             String date = pastTrips.get(i)[2];
             int bgColor = (int) CARD_COLORS[i % CARD_COLORS.length];
@@ -228,6 +229,18 @@ public class MainActivity extends AppCompatActivity
             inner.addView(tvDest);
             inner.addView(tvDate);
             card.addView(inner);
+
+            // Click → open TripDetailActivity
+            final String finalDest = dest;
+            final String finalDate = date;
+            card.setOnClickListener(v -> {
+                Intent intent = new Intent(this, TripDetailActivity.class);
+                intent.putExtra("trip_id", Integer.parseInt(tripIdStr));
+                intent.putExtra("trip_destination", finalDest);
+                intent.putExtra("trip_date", finalDate);
+                startActivity(intent);
+            });
+
             llPastTrips.addView(card);
         }
     }
