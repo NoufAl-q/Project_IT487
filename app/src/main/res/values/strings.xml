@@ -12,8 +12,8 @@
     <string name="clear_all_confirm">This will permanently delete all trips and items. Continue?</string>
     <string name="dark_mode">Dark Mode</string>
     <string name="light_mode">Light Mode</string>
-    <string name="statistics_menu">Statistics</string>
-    <string name="support_menu">About / Support</string>
+    <string name="statistics_menu">Dashboard</string>
+    <string name="support_menu">About</string>
 
     <!-- Add Trip Dialog -->
     <string name="destination">Destination</string>
@@ -34,20 +34,22 @@
     <string name="priority_low">Low</string>
     <string name="delete_item">Delete Item</string>
 
-    <!-- Statistics Screen -->
-    <string name="statistics">Statistics</string>
-    <string name="stat_label">Statistic</string>
+    <!-- Statistics / Dashboard Screen -->
+    <string name="statistics">Dashboard</string>
+    <string name="stat_label">Metric</string>
     <string name="stat_value">Value</string>
     <string name="total_trips">Total Trips</string>
     <string name="total_items">Total Items</string>
-    <string name="prepared_items">Prepared Items</string>
+    <string name="prepared_items">Packed Items</string>
     <string name="remaining_items">Remaining Items</string>
     <string name="next_trip">Next Trip</string>
+    <string name="completion_rate">Completion Rate</string>
 
-    <!-- Support Screen -->
-    <string name="support">About / Support</string>
+    <!-- Meet the Team Screen -->
+    <string name="support">About</string>
     <string name="team_section">Team Members</string>
     <string name="supervisor_section">Supervisor</string>
+    <string name="professor_section">Professor</string>
     <string name="course_section">Course</string>
     <string name="app_version">Version 1.0</string>
 

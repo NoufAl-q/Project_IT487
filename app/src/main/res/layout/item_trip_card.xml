@@ -79,7 +79,7 @@
                     android:layout_width="14dp"
                     android:layout_height="14dp"
                     android:src="@drawable/ic_calendar"
-                    app:tint="?attr/colorOnSurfaceVariant"
+                    android:colorFilter="?attr/colorOnSurfaceVariant"
                     android:contentDescription="Date" />
 
                 <TextView
