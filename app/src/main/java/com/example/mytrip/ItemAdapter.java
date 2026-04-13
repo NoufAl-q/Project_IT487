@@ -9,9 +9,10 @@ import android.widget.ImageButton;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
-import androidx.cardview.widget.CardView;
 import androidx.core.content.ContextCompat;
 import androidx.recyclerview.widget.RecyclerView;
+
+import com.google.android.material.card.MaterialCardView;
 
 import java.util.List;
 
@@ -92,7 +93,7 @@ public class ItemAdapter extends RecyclerView.Adapter<ItemAdapter.ItemViewHolder
     // ── ViewHolder ────────────────────────────────────────────────────────────
 
     static class ItemViewHolder extends RecyclerView.ViewHolder {
-        final CardView    cardView;
+        final MaterialCardView cardView;
         final TextView    tvItemName;
         final TextView    tvPriority;
         final CheckBox    checkBox;

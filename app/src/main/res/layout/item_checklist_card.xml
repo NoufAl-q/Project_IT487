@@ -1,9 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<!--
-    Location : app/src/main/res/layout/
-    Purpose  : Single checklist item card in the trip detail RecyclerView
--->
-<androidx.cardview.widget.CardView
+<com.google.android.material.card.MaterialCardView
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:id="@+id/cardItem"
@@ -12,6 +8,7 @@
     android:layout_margin="6dp"
     app:cardCornerRadius="12dp"
     app:cardElevation="2dp"
+    app:strokeWidth="0dp"
     app:cardBackgroundColor="?attr/colorSurface">
 
     <LinearLayout
@@ -21,11 +18,13 @@
         android:padding="14dp"
         android:gravity="center_vertical">
 
-        <!-- Checkbox -->
+        <!-- Checkbox – min 48dp touch target -->
         <CheckBox
             android:id="@+id/checkBoxItem"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:minWidth="48dp"
+            android:minHeight="48dp"
             android:buttonTint="?attr/colorPrimary" />
 
         <!-- Item name + priority -->
@@ -43,9 +42,8 @@
                 android:textSize="15sp"
                 android:textStyle="bold"
                 android:textColor="?attr/colorOnSurface"
-                android:text="Item Name" />
+                android:text="@string/item_name" />
 
-            <!-- Priority label (colour set programmatically) -->
             <TextView
                 android:id="@+id/tvPriority"
                 android:layout_width="wrap_content"
@@ -53,30 +51,32 @@
                 android:textSize="12sp"
                 android:textStyle="bold"
                 android:layout_marginTop="3dp"
-                android:text="Normal" />
+                android:text="@string/priority_normal" />
 
         </LinearLayout>
 
-        <!-- Edit button -->
+        <!-- Edit button – 48dp touch target -->
         <ImageButton
             android:id="@+id/btnEditItem"
-            android:layout_width="20dp"
-            android:layout_height="20dp"
+            android:layout_width="48dp"
+            android:layout_height="48dp"
             android:src="@android:drawable/ic_menu_edit"
             android:background="?attr/selectableItemBackgroundBorderless"
-            android:tint="?attr/colorPrimary"
+            android:padding="14dp"
+            app:tint="?attr/colorPrimary"
             android:contentDescription="@string/edit_item" />
 
-        <!-- Delete button -->
+        <!-- Delete button – 48dp touch target -->
         <ImageButton
             android:id="@+id/btnDeleteItem"
-            android:layout_width="36dp"
-            android:layout_height="36dp"
+            android:layout_width="48dp"
+            android:layout_height="48dp"
             android:src="@android:drawable/ic_menu_delete"
             android:background="?attr/selectableItemBackgroundBorderless"
-            android:tint="?attr/colorError"
+            android:padding="12dp"
+            app:tint="?attr/colorError"
             android:contentDescription="@string/cd_delete" />
 
     </LinearLayout>
 
-</androidx.cardview.widget.CardView>
+</com.google.android.material.card.MaterialCardView>
