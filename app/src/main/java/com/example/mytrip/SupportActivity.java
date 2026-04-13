@@ -1,6 +1,7 @@
 package com.example.mytrip;
 
 import android.content.Intent;
+import android.os.Build;
 import android.os.Bundle;
 import android.view.MenuItem;
 
@@ -47,13 +48,22 @@ public class SupportActivity extends AppCompatActivity {
                 return true;
             } else if (id == R.id.nav_stats) {
                 startActivity(new Intent(this, StatisticsActivity.class));
-                overridePendingTransition(0, 0);
+                noTransition();
                 return true;
             } else if (id == R.id.nav_about) {
                 return true;
             }
             return false;
         });
+    }
+
+    private void noTransition() {
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.UPSIDE_DOWN_CAKE) {
+            overrideActivityTransition(OVERRIDE_TRANSITION_OPEN, 0, 0, 0);
+        } else {
+            //noinspection deprecation
+            overridePendingTransition(0, 0);
+        }
     }
 
     @Override

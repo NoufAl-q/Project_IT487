@@ -3,6 +3,7 @@ package com.example.mytrip;
 import android.app.AlertDialog;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.os.Build;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.util.TypedValue;
@@ -107,17 +108,27 @@ public class MainActivity extends AppCompatActivity
                 return true;
             } else if (id == R.id.nav_stats) {
                 startActivity(new Intent(this, StatisticsActivity.class));
-                overridePendingTransition(0, 0);
+                noTransition();
                 return true;
             } else if (id == R.id.nav_about) {
                 startActivity(new Intent(this, SupportActivity.class));
-                overridePendingTransition(0, 0);
+                noTransition();
                 return true;
             }
             return false;
         });
 
         loadTrips(null);
+    }
+
+    /** Disables the activity transition animation (works on all API levels). */
+    private void noTransition() {
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.UPSIDE_DOWN_CAKE) {
+            overrideActivityTransition(OVERRIDE_TRANSITION_OPEN, 0, 0, 0);
+        } else {
+            //noinspection deprecation
+            overridePendingTransition(0, 0);
+        }
     }
 
     @Override

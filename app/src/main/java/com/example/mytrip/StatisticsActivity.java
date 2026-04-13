@@ -1,6 +1,7 @@
 package com.example.mytrip;
 
 import android.content.Intent;
+import android.os.Build;
 import android.os.Bundle;
 import android.view.MenuItem;
 import android.widget.TextView;
@@ -64,11 +65,20 @@ public class StatisticsActivity extends AppCompatActivity {
                 return true;
             } else if (id == R.id.nav_about) {
                 startActivity(new Intent(this, SupportActivity.class));
-                overridePendingTransition(0, 0);
+                noTransition();
                 return true;
             }
             return false;
         });
+    }
+
+    private void noTransition() {
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.UPSIDE_DOWN_CAKE) {
+            overrideActivityTransition(OVERRIDE_TRANSITION_OPEN, 0, 0, 0);
+        } else {
+            //noinspection deprecation
+            overridePendingTransition(0, 0);
+        }
     }
 
     @Override
