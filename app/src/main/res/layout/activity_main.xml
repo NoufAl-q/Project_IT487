@@ -60,7 +60,7 @@
                     android:id="@+id/tvPastTripsLabel"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="My Trips Preview"
+                    android:text="My Previous Trips"
                     android:textSize="16sp"
                     android:textStyle="bold"
                     android:textColor="?attr/colorOnSurface"

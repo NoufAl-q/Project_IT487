@@ -250,14 +250,17 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         return name;
     }
 
-    /** Returns up to 5 most recent trips (by date DESC) for the home screen preview. */
+    /** Returns trips with date before today (past trips), most recent first. */
     public List<String[]> getRecentTrips() {
         SQLiteDatabase db = this.getReadableDatabase();
+        String today = new java.text.SimpleDateFormat("yyyy-MM-dd", java.util.Locale.US)
+                .format(new java.util.Date());
         Cursor cursor = db.rawQuery(
                 "SELECT " + TRIP_ID + ", " + TRIP_DESTINATION + ", " + TRIP_DATE
                         + " FROM " + TABLE_TRIPS
+                        + " WHERE " + TRIP_DATE + " < ?"
                         + " ORDER BY " + TRIP_DATE + " DESC LIMIT 5",
-                null);
+                new String[]{today});
         List<String[]> list = new ArrayList<>();
         while (cursor.moveToNext()) {
             list.add(new String[]{
