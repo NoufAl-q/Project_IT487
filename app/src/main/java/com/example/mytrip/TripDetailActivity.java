@@ -171,14 +171,10 @@ public class TripDetailActivity extends AppCompatActivity
             Trip trip = new Trip(tripId, tripDestination, tripDate);
             AddTripDialogFragment dialog = AddTripDialogFragment.newEditInstance(trip);
             dialog.setOnTripAddedListener(() -> {
-                // Refresh local vars and toolbar title after edit
-                List<String[]> rows = dbHelper.getAllTrips();
-                for (String[] row : rows) {
-                    if (Integer.parseInt(row[0]) == tripId) {
-                        tripDestination = row[1];
-                        tripDate = row[2];
-                        break;
-                    }
+                String[] updated = dbHelper.getTripById(tripId);
+                if (updated != null) {
+                    tripDestination = updated[1];
+                    tripDate = updated[2];
                 }
                 if (getSupportActionBar() != null) {
                     getSupportActionBar().setTitle(tripDestination);

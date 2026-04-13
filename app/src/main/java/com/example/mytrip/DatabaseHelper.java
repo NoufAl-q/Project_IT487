@@ -94,6 +94,19 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         return tripList;
     }
 
+    public String[] getTripById(int id) {
+        SQLiteDatabase db = this.getReadableDatabase();
+        Cursor cursor = db.rawQuery("SELECT * FROM " + TABLE_TRIPS
+                + " WHERE " + TRIP_ID + "=?", new String[]{String.valueOf(id)});
+        String[] trip = null;
+        if (cursor.moveToFirst()) {
+            trip = new String[]{cursor.getString(0), cursor.getString(1), cursor.getString(2)};
+        }
+        cursor.close();
+        db.close();
+        return trip;
+    }
+
     public List<String[]> searchTrips(String keyword) {
         List<String[]> tripList = new ArrayList<>();
         SQLiteDatabase db = this.getReadableDatabase();
