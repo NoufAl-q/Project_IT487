@@ -182,6 +182,24 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         return itemList;
     }
 
+    public void updateTrip(int id, String destination, String date) {
+        SQLiteDatabase db = this.getWritableDatabase();
+        ContentValues values = new ContentValues();
+        values.put(TRIP_DESTINATION, destination);
+        values.put(TRIP_DATE, date);
+        db.update(TABLE_TRIPS, values, TRIP_ID + "=?", new String[]{String.valueOf(id)});
+        db.close();
+    }
+
+    public void updateItem(int id, String itemName, String priority) {
+        SQLiteDatabase db = this.getWritableDatabase();
+        ContentValues values = new ContentValues();
+        values.put(ITEM_NAME, itemName);
+        values.put(ITEM_PRIORITY, priority);
+        db.update(TABLE_ITEMS, values, ITEM_ID + "=?", new String[]{String.valueOf(id)});
+        db.close();
+    }
+
     public void updateItemChecked(int id, boolean isChecked) {
         SQLiteDatabase db = this.getWritableDatabase();
         ContentValues values = new ContentValues();

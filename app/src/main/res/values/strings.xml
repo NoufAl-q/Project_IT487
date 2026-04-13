@@ -53,10 +53,16 @@
     <string name="course_section">Course</string>
     <string name="app_version">Version 1.0</string>
 
+    <!-- Edit labels -->
+    <string name="edit_trip">Edit Trip</string>
+    <string name="edit_item">Edit Item</string>
+
     <!-- Toast messages -->
     <string name="trip_added">Trip added successfully!</string>
+    <string name="trip_updated">Trip updated!</string>
     <string name="trip_deleted">Trip deleted!</string>
     <string name="item_added">Item added!</string>
+    <string name="item_updated">Item updated!</string>
     <string name="item_deleted">Item deleted!</string>
     <string name="all_cleared">All data cleared!</string>
     <string name="fill_all_fields">Please fill all fields!</string>

@@ -26,6 +26,7 @@ public class ItemAdapter extends RecyclerView.Adapter<ItemAdapter.ItemViewHolder
     public interface OnItemActionListener {
         void onItemChecked(Item item, boolean checked);
         void onItemDelete(Item item);
+        void onItemEdit(Item item);
     }
 
     private final Context context;
@@ -78,6 +79,12 @@ public class ItemAdapter extends RecyclerView.Adapter<ItemAdapter.ItemViewHolder
 
         // Delete button
         holder.btnDelete.setOnClickListener(v -> listener.onItemDelete(item));
+
+        // Long-press card → edit item
+        holder.cardView.setOnLongClickListener(v -> {
+            listener.onItemEdit(item);
+            return true;
+        });
     }
 
     @Override
