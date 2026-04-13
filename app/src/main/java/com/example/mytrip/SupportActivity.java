@@ -45,9 +45,7 @@ public class SupportActivity extends AppCompatActivity {
         bottomNav.setOnItemSelectedListener(item -> {
             int id = item.getItemId();
             if (id == R.id.nav_home) {
-                startActivity(new Intent(this, MainActivity.class)
-                        .addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP));
-                overridePendingTransition(0, 0);
+                finish();
                 return true;
             } else if (id == R.id.nav_stats) {
                 startActivity(new Intent(this, StatisticsActivity.class));
