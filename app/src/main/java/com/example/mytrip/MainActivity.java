@@ -57,7 +57,7 @@ public class MainActivity extends AppCompatActivity
     private final List<Trip> tripList = new ArrayList<>();
     private DatabaseHelper dbHelper;
     private TextView tvEmpty;
-    private TextView tvStatTrips, tvStatPrepared, tvStatRemaining;
+
     private TextView tvPastTripsLabel;
     private View hsvPastTrips;
     private LinearLayout llPastTrips;
@@ -80,9 +80,7 @@ public class MainActivity extends AppCompatActivity
         dbHelper = new DatabaseHelper(this);
         recyclerView    = findViewById(R.id.recyclerViewTrips);
         tvEmpty         = findViewById(R.id.tvEmpty);
-        tvStatTrips     = findViewById(R.id.tvStatTrips);
-        tvStatPrepared  = findViewById(R.id.tvStatPrepared);
-        tvStatRemaining = findViewById(R.id.tvStatRemaining);
+
         tvPastTripsLabel = findViewById(R.id.tvPastTripsLabel);
         hsvPastTrips    = findViewById(R.id.hsvPastTrips);
         llPastTrips     = findViewById(R.id.llPastTrips);
@@ -141,13 +139,6 @@ public class MainActivity extends AppCompatActivity
 
         adapter.notifyDataSetChanged();
         tvEmpty.setVisibility(tripList.isEmpty() ? View.VISIBLE : View.GONE);
-
-        // Update stats card
-        int totalItems    = dbHelper.getTotalItems();
-        int preparedItems = dbHelper.getPreparedItems();
-        tvStatTrips.setText(String.valueOf(tripList.size()));
-        tvStatPrepared.setText(String.valueOf(preparedItems));
-        tvStatRemaining.setText(String.valueOf(totalItems - preparedItems));
 
         // Update My Previous Trips section (only shown when not searching)
         if (query == null || query.isEmpty()) {
